@@ -69,7 +69,7 @@ header.hero { padding: 56px 0 28px; text-align: center; }
   margin: 8px 0 40px; padding: 18px 0 4px; position: relative;
   overflow-x: auto; scrollbar-width: thin;
 }
-.strip-inner { position: relative; min-width: 760px; height: 92px; margin: 0 26px; }
+.strip-inner { position: relative; min-width: 760px; height: 104px; margin: 0 26px; }
 .strip-line { position: absolute; left: 0; right: 0; top: 41px; height: 2px; background: var(--line); }
 .tick { position: absolute; top: 0; transform: translateX(-50%); text-align: center; text-decoration: none; }
 .tick i {
@@ -81,7 +81,9 @@ header.hero { padding: 56px 0 28px; text-align: center; }
 .tick.r1 span { top: 16px; }
 .tick.r2 span { top: 58px; }
 .tick:hover span { color: var(--gold); }
-.year { position: absolute; top: 78px; transform: translateX(-50%); font: 400 10px/1 "IBM Plex Mono", monospace; color: var(--mute); opacity: .6; }
+.year { position: absolute; top: 78px; transform: translateX(-50%); font: 400 10px/1 "IBM Plex Mono", monospace; color: var(--mute); opacity: .6; white-space: nowrap; }
+.year.low { top: 91px; }
+.year.off { visibility: hidden; }
 
 /* ---------- Groups ---------- */
 section.group { margin: 0 0 56px; }
@@ -270,7 +272,7 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
     <ul>
       <li><b>Doma and Pale Beast</b> (no code) were also in the EX Starter Box (Dec 1999), and the cards look the same. They're filed under Vol.4 and Vol.5, their first printings.</li>
       <li><b>BE2 and BE02</b> are two different sets: Beginner's Edition 2 from 2004 and the 2011 one.</li>
-      <li><b>Dates:</b> the KA date comes from one card's listing (KA-18), and the SD11 date had a conflicting year on the source page.</li>
+      <li><b>SD11 date:</b> the source page had a conflicting year.</li>
     </ul>
   </section>
  </div>
@@ -305,6 +307,7 @@ const SETS = [
   { code: 'Vol.5', name: 'Volume 5', date: '1999-09-23', group: 'nocode', sample: 'no code' },
   { code: 'Vol.7', name: 'Volume 7', date: '2000-01-27', group: 'nocode', sample: 'no code' },
   { code: 'MR',    name: 'Magic Ruler', date: '2000-04-20', group: 'code' },
+  { code: 'LB',    name: 'Legend of Blue Eyes White Dragon', jp: '青眼の白龍伝説', date: '2000-05-18', group: 'code' },
   { code: 'PS',    name: "Pharaoh's Servant", date: '2000-07-13', group: 'code' },
   { code: 'PG',    name: 'Phantom God', jp: '幻の召喚神', date: '2000-08-10', group: 'code' },
   { code: 'B2',    name: 'Booster R2', jp: 'ブースターR2', date: '2000-09-09', group: 'code' },
@@ -314,21 +317,26 @@ const SETS = [
   { code: 'TB',    name: 'Thousand Eyes Bible', jp: '千眼の魔術書', date: '2000-12-14', group: 'code' },
   { code: 'ME',    name: 'Metal Raiders', jp: '鋼鉄の襲撃者', date: '2001-02-22', group: 'code' },
   { code: 'SM',    name: 'Spell of Mask', jp: '仮面の呪縛', date: '2001-04-19', group: 'code' },
-  { code: 'KA',    name: 'Structure Deck: Kaiba', jp: '海馬編', date: '2002-01-24', group: 'code', unsure: 'Date from one card listing' },
+  { code: 'YU',    name: 'Structure Deck: Yugi', jp: '遊戯編', date: '2001-06-28', group: 'code' },
+  { code: 'KA',    name: 'Structure Deck: Kaiba', jp: '海馬編', date: '2002-01-24', group: 'code' },
   { code: '301',   name: 'The New Ruler', jp: '新たなる支配者', date: '2002-05-16', group: 'code', sample: '301-001' },
   { code: '302',   name: 'Advent of Union', jp: 'ユニオンの降臨', date: '2002-07-18', group: 'code', sample: '302-001' },
   { code: 'EE1',   name: 'Expert Edition Volume 1', date: '2004-09-23', group: 'codejp' },
+  { code: '304',   name: 'Power of the Guardian', jp: 'ガーディアンの力', date: '2002-11-21', group: 'code', sample: '304-001' },
   { code: 'BE2',   name: "Beginner's Edition 2", date: '2004-12-09', group: 'codejp', note: 'Not the same as BE02' },
   { code: 'EE2',   name: 'Expert Edition Volume 2', date: '2005-03-17', group: 'codejp' },
+  { code: 'SD4',   name: 'Structure Deck: Fury from the Deep', jp: '海竜神の怒り', date: '2005-03-17', group: 'codejp' },
   { code: 'CDIP',  name: 'Cyberdark Impact', jp: 'サイバーダーク・インパクト', date: '2006-08-10', group: 'codejp' },
   { code: 'SD11',  name: 'Structure Deck SD11', jp: '閃光の波動', date: '2006-12-14', group: 'codejp', unsure: 'Date not certain' },
   { code: 'FOTB',  name: 'Force of the Breaker', jp: 'フォース・オブ・ザ・ブレイカー', date: '2007-02-15', group: 'codejp' },
+  { code: 'GLAS',  name: "Gladiator's Assault", jp: 'グラディエイターズ・アサルト', date: '2007-07-21', group: 'codejp' },
   { code: 'CSOC',  name: 'Crossroads of Chaos', jp: 'クロスローズ・オブ・カオス', date: '2008-07-19', group: 'codejp' },
   { code: 'EXP1',  name: 'Extra Pack', date: '2008-09-13', group: 'codejp' },
   { code: 'CRMS',  name: 'Crimson Crisis', jp: 'クリムゾン・クライシス', date: '2008-11-15', group: 'codejp' },
   { code: 'SD18', name: 'Structure Deck: Machiners Command', date: '2009-12-12', group: 'codejp' },
   { code: 'BE02',  name: "Beginner's Edition 2 (2011)", date: '2011-08-13', group: 'codejp', note: 'Not the same as BE2' },
   { code: 'EXP4',  name: 'Extra Pack Volume 4', date: '2011-09-17', group: 'codejp' },
+  { code: 'GDB1',  name: 'The Gold Box', date: '2012-08-25', group: 'codejp' },
   { code: '20AP',  name: '20th Anniversary Pack 1st Wave', date: '2016-12-17', group: 'codejp' },
   { code: 'AGOV',  name: 'Age of Overlord', jp: 'エイジ・オブ・オーバーロード', date: '2023-07-22', group: 'codejp' },
   { code: 'AC04',  name: 'Animation Chronicle 2024', jp: 'アニメーションクロニクル2024', date: '2024-06-22', group: 'codejp' },
@@ -344,6 +352,7 @@ const SET_IMG = {
   BE02: 'be02.png', EXP4: 'exp4.png', FOTB: 'fotb.jpg', '20AP': '20ap.png', AGOV: 'agov.png',
   AC04: 'ac04.png', EE1: 'ee1.png', EE2: 'ee2.png', CDIP: 'cdip.png', CSOC: 'csoc.png',
   EXP1: 'exp1.png', CRMS: 'crms.png', BPRO: 'bpro.png', BLZD: 'blzd.png',
+  LB: 'lb.jpg', YU: 'yu.png', '304': '304.jpg', SD4: 'sd4.png', GLAS: 'glas.png', GDB1: 'gdb1.png',
 };
 SETS.forEach(s => { if (SET_IMG[s.code]) s.img = 'photos/sets/' + SET_IMG[s.code]; });
 
@@ -352,43 +361,55 @@ const CARDS = [
   // type, attr and level are saved for sorting later.
   // Codeless cards: code is '' and the name is used as the key instead (also in FIRST).
   { set: 'Vol.2', code: '', name: 'Holograh',         jp: 'ホログラー',               type: 'Normal Monster', attr: 'EARTH', lv: 3, img: 'photos/vol2-holograh.jpg' },
+  { set: 'Vol.2', code: '', name: 'Wood Remains',     jp: '森の屍',                   type: 'Normal Monster', attr: 'DARK',  lv: 3, img: 'photos/vol2-wood-remains.jpg' },
   { set: 'Vol.4', code: '', name: 'Doma The Angel of Silence', jp: '死の沈黙の天使 ドマ', type: 'Normal Monster', attr: 'DARK', lv: 5, img: 'photos/vol4-doma.jpg' },
   { set: 'Vol.5', code: '', name: 'Toad Master',      jp: 'トードマスター',           type: 'Normal Monster', attr: 'WATER', lv: 3, img: 'photos/vol5-toad-master.png' },
   { set: 'Vol.5', code: '', name: 'Pale Beast',       jp: 'ペイルビースト',           type: 'Normal Monster', attr: 'EARTH', lv: 4, img: 'photos/vol5-pale-beast.png' },
   { set: 'Vol.7', code: '', name: 'Sword of Deep-Seated', jp: '執念の剣',             type: 'Spell',                                img: 'photos/vol7-sword-of-deep-seated.jpg' },
   { set: 'MR', code: 'MR-11', name: 'Peacock',          jp: 'クジャック',               type: 'Normal Monster', attr: 'WIND',  lv: 5, img: 'photos/mr-11.jpg' },
   { set: 'MR', code: 'MR-50', name: 'Snake Fang',       jp: '毒蛇の牙',                 type: 'Trap',                                 img: 'photos/mr-50.png' },
+  { set: 'LB', code: 'LB-38', name: 'Kurama',           jp: 'ドレイク',                 type: 'Normal Monster', attr: 'WIND',  lv: 3, img: 'photos/lb-38.jpg' },
+  { set: 'LB', code: 'LB-39', name: 'Legendary Sword',  jp: '伝説の剣',                 type: 'Spell',                                img: 'photos/lb-39.png' },
   { set: 'PS', code: 'PS-15', name: 'Turtle Oath',      jp: '亀の誓い',                 type: 'Spell',                                img: 'photos/ps-15.jpg' },
   { set: 'PG', code: 'PG-15', name: 'M-Warrior #1',     jp: 'マグネッツ１号',           type: 'Normal Monster', attr: 'EARTH', lv: 3, img: 'photos/pg-15.jpg' },
   { set: 'PG', code: 'PG-53', name: 'Darkworld Thorns', jp: '魔界のイバラ',             type: 'Normal Monster', attr: 'EARTH', lv: 3, img: 'photos/pg-53.png' },
   { set: 'PG', code: 'PG-55', name: 'Armored Starfish', jp: 'アーマード・スターフィッシュ', type: 'Normal Monster', attr: 'WATER', lv: 4, img: 'photos/pg-55.jpg' },
   { set: 'B2', code: 'B2-15', name: 'Cyber Soldier of Darkworld', jp: '魔界の機械兵', type: 'Normal Monster', attr: 'DARK', lv: 4, img: 'photos/b2-15.jpg' },
   { set: 'CA', code: 'CA-07', name: 'Time Seal',        jp: '刻の封印',                 type: 'Trap',                                 img: 'photos/ca-07.jpg' },
+  { set: 'RB', code: 'RB-23', name: 'Petit Moth',       jp: 'プチモス',                 type: 'Normal Monster', attr: 'EARTH', lv: 1, img: 'photos/rb-23.jpg' },
+  { set: 'RB', code: 'RB-46', name: 'Empress Judge',    jp: '裁きを下す女帝',           type: 'Fusion Monster', attr: 'EARTH', lv: 6, img: 'photos/rb-46.jpg' },
   { set: 'RB', code: 'RB-28', name: 'Mystic Lamp',      jp: '魔法のランプ',             type: 'Effect Monster', attr: 'DARK',  lv: 1, img: 'photos/rb-28.jpg' },
   { set: 'EX', code: 'EX-28', name: 'Two-Pronged Attack', jp: 'はさみ撃ち',             type: 'Trap',                                 img: 'photos/ex-28.jpg' },
   { set: 'EX', code: 'EX-46', name: 'Remove Trap',      jp: '罠はずし',                 type: 'Spell',                                img: 'photos/ex-46.jpg' },
   { set: 'EX', code: 'EX-62', name: 'Dark Titan of Terror', jp: '暗黒魔神 ナイトメア',  type: 'Normal Monster', attr: 'DARK',  lv: 4, img: 'photos/ex-62.jpg' },
+  { set: 'TB', code: 'TB-13', name: 'Fairy Meteor Crush', jp: 'メテオ・ストライク',     type: 'Spell',                                img: 'photos/tb-13.jpg' },
   { set: 'TB', code: 'TB-24', name: 'Type Zero Magic Crusher', jp: '零式魔導粉砕機',    type: 'Trap',                                 img: 'photos/tb-24.jpg' },
   { set: 'ME', code: 'ME-01', name: 'Baby Dragon',      jp: 'ベビードラゴン',           type: 'Normal Monster', attr: 'WIND',  lv: 3, img: 'photos/me-01.jpg' },
   { set: 'ME', code: 'ME-35', name: 'Launcher Spider',  jp: 'ＴＭ－１ランチャースパイダー', type: 'Normal Monster', attr: 'FIRE', lv: 7, img: 'photos/me-35.png' },
   { set: 'SM', code: 'SM-26', name: 'Infinite Cards',   jp: '無限の手札',               type: 'Spell',                                img: 'photos/sm-26.png' },
+  { set: 'YU', code: 'YU-17', name: 'Giant Soldier of Stone', jp: '岩石の巨兵',         type: 'Normal Monster', attr: 'EARTH', lv: 3, img: 'photos/yu-17.jpg' },
+  { set: 'YU', code: 'YU-36', name: 'Backup Soldier',   jp: '補充要員',                 type: 'Trap',                                 img: 'photos/yu-36.jpg' },
   { set: 'KA', code: 'KA-45', name: 'Lord of D.',       jp: 'ロード・オブ・ドラゴン－ドラゴンの支配者－', type: 'Effect Monster', attr: 'DARK', lv: 4, img: 'photos/ka-45.jpg' },
   { set: '301', code: '301-035', name: 'Dark Snake Syndrome', jp: '黒蛇病',       type: 'Spell',                                img: 'photos/301-035.png' },
   { set: '302', code: '302-012', name: 'Giant Orc',     jp: 'ジャイアント・オーク',     type: 'Effect Monster', attr: 'DARK',  lv: 4, img: 'photos/302-012.jpg' },
+  { set: '304', code: '304-043', name: 'Non-Spellcasting Area', jp: '絶対魔法禁止区域', type: 'Spell',                              img: 'photos/304-043.jpg' },
   { set: 'EE1', code: 'EE1-JP016', name: 'A Man with Wdjat',  jp: 'ウジャト眼を持つ男',     type: 'Effect Monster', attr: 'DARK',  lv: 4, img: 'photos/ee1-jp016.jpg' },
   { set: 'EE1', code: 'EE1-JP092', name: 'Metalsilver Armor', jp: 'メタルシルバー・アーマー', type: 'Spell',                              img: 'photos/ee1-jp092.jpg' },
   { set: 'EE1', code: 'EE1-JP124', name: 'Magical Marionette', jp: '魔法の操り人形',        type: 'Effect Monster', attr: 'DARK',  lv: 5, img: 'photos/ee1-jp124.jpg' },
   { set: 'EE1', code: 'EE1-JP226', name: 'Iron Blacksmith Kotetsu', jp: '名工 虎鉄',        type: 'Effect Monster', attr: 'FIRE',  lv: 2, img: 'photos/ee1-jp226.jpg' },
   { set: 'BE2', code: 'BE2-JP068', name: 'Bladefly',          jp: 'ブレードフライ',         type: 'Effect Monster', attr: 'WIND',  lv: 2, img: 'photos/be2-jp068.jpg' },
   { set: 'EE2', code: 'EE2-JP213', name: 'The Second Sarcophagus', jp: '第二の棺',          type: 'Spell',                              img: 'photos/ee2-jp213.jpg' },
+  { set: 'SD4', code: 'SD4-JP032', name: 'Xing Zhen Hu',    jp: '心鎮壷',                 type: 'Trap',                               img: 'photos/sd4-jp032.jpg' },
   { set: 'CDIP', code: 'CDIP-JP048', name: 'Senet Switch',    jp: 'ポジションチェンジ',     type: 'Spell',                              img: 'photos/cdip-jp048.jpg' },
   { set: 'FOTB', code: 'FOTB-JP012', name: 'Volcanic Slicer', jp: 'ヴォルカニック・エッジ', type: 'Effect Monster', attr: 'FIRE', lv: 4, img: 'photos/fotb-jp012.jpg' },
+  { set: 'GLAS', code: 'GLAS-JP070', name: 'Shadow-Imprisoning Mirror', jp: '暗闇を吸い込むマジック・ミラー', type: 'Trap',             img: 'photos/glas-jp070.jpg' },
   { set: 'CSOC', code: 'CSOC-JP006', name: 'Morphtronic Celfon', jp: 'Ｄ・モバホン',        type: 'Effect Monster', attr: 'EARTH', lv: 1, img: 'photos/csoc-jp006.jpg' },
   { set: 'CSOC', code: 'CSOC-JP046', name: 'Seed of Deception', jp: '偽りの種',             type: 'Spell',                              img: 'photos/csoc-jp046.jpg' },
   { set: 'EXP1', code: 'EXP1-JP009', name: 'Fossil Tusker',   jp: 'マンモ・フォッシル',     type: 'Effect Monster', attr: 'EARTH', lv: 4, img: 'photos/exp1-jp009.png' },
   { set: 'CRMS', code: 'CRMS-JP029', name: 'Flip Flop Frog',  jp: '裏ガエル',               type: 'Effect Monster', attr: 'WATER', lv: 2, img: 'photos/crms-jp029.jpg' },
   { set: 'BE02', code: 'BE02-JP172', name: 'Jowls of Dark Demise', jp: 'Ｘ・Ｅ・Ｎ・Ｏ',     type: 'Effect Monster', attr: 'WATER', lv: 2, img: 'photos/be02-jp172.jpg' },
   { set: 'EXP4', code: 'EXP4-JP015', name: 'Dark Desertapir', jp: 'ダーク砂バク',           type: 'Effect Monster', attr: 'EARTH', lv: 2, img: 'photos/exp4-jp015.jpg' },
+  { set: 'GDB1', code: 'GDB1-JP076', name: 'Gravity Bind',   jp: 'グラヴィティ・バインド－超重力の網－', type: 'Trap',             img: 'photos/gdb1-jp076.jpg' },
   { set: '20AP', code: '20AP-JP014', name: 'Morphing Jar',    jp: 'メタモルポット',         type: 'Effect Monster', attr: 'EARTH', lv: 2, img: 'photos/20ap-jp014.png' },
   { set: 'AGOV', code: 'AGOV-JP024', name: 'Tarai',           jp: '陀羅威',                 type: 'Effect Monster', attr: 'EARTH', lv: 4, img: 'photos/agov-jp024.png' },
   { set: 'AGOV', code: 'AGOV-JP047', name: 'Pendulum Evolution', jp: 'ペンデュラム・エボリューション', type: 'Spell',              img: 'photos/agov-jp047.png' },
@@ -439,6 +460,17 @@ const FIRST = {
   'EXP4-JP015': ['2011-09-17', 'Extra Pack Volume 4'],
   'BPRO-JP078': ['2025-10-25', 'Burst Protocol'],
   'BLZD-JP007': ['2026-01-24', 'Blazing Dominion'],
+  'LB-38':      ['1999-02-04', 'Vol.1'],
+  'LB-39':      ['1999-02-04', 'Vol.1'],
+  'YU-17':      ['1999-05-27', 'Vol.3'],
+  'RB-23':      ['1999-07-22', 'Vol.4'],
+  'RB-46':      ['1999-09-23', 'Vol.5'],
+  'YU-36':      ['2000-09-28', 'Curse of Anubis'],
+  'TB-13':      ['2000-12-14', 'Thousand Eyes Bible'],
+  'GDB1-JP076': ['2000-12-14', 'Thousand Eyes Bible'],
+  '304-043':    ['2002-11-21', 'Power of the Guardian'],
+  'SD4-JP032':  ['2004-08-05', 'Rise of Destiny'],
+  'GLAS-JP070': ['2007-07-21', "Gladiator's Assault"],
 };
 
 /* ===================================================================== */
@@ -468,6 +500,25 @@ bydate.forEach((s, i) => {
   strip += `<a class="tick r${i % 2 ? 2 : 0}" href="#set-${s.code}" style="left:${pct(s)};--c:var(${g.c})" title="${s.name}"><span>${s.code}</span><i></i></a>`;
 });
 $('#strip').insertAdjacentHTML('beforeend', strip);
+// Keep the tick spacing readable as sets are added (the strip scrolls sideways on phones).
+$('#strip').style.minWidth = Math.max(760, bydate.length * 22) + 'px';
+
+// Year labels that would bump into the one before drop to a second row,
+// and if that row is busy too they're hidden (hover a dot to see its set).
+function placeYears() {
+  const last = [-1e9, -1e9];
+  document.querySelectorAll('#strip .year').forEach(el => {
+    el.classList.remove('low', 'off');
+    const r = el.getBoundingClientRect();
+    const row = r.left > last[0] + 4 ? 0 : r.left > last[1] + 4 ? 1 : -1;
+    if (row === 1) el.classList.add('low');
+    if (row === -1) { el.classList.add('off'); return; }
+    last[row] = r.right;
+  });
+}
+placeYears();
+document.fonts && document.fonts.ready.then(placeYears);
+addEventListener('resize', placeYears);
 
 // Groups and tiles
 let n = 0;
