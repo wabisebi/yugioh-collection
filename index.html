@@ -342,6 +342,19 @@ const SETS = [
   { code: 'AC04',  name: 'Animation Chronicle 2024', jp: 'アニメーションクロニクル2024', date: '2024-06-22', group: 'codejp' },
   { code: 'BPRO',  name: 'Burst Protocol', jp: 'バースト・プロトコル', date: '2025-10-25', group: 'codejp' },
   { code: 'BLZD',  name: 'Blazing Dominion', jp: 'ブレイジング・ドミニオン', date: '2026-01-24', group: 'codejp' },
+  { code: 'PTDN',  name: 'Phantom Darkness', jp: 'ファントム・ダークネス', date: '2007-11-23', group: 'codejp' },
+  { code: 'GENF',  name: 'Generation Force', jp: 'ジェネレーション・フォース', date: '2011-04-16', group: 'codejp' },
+  { code: 'GS04',  name: 'Gold Series 2012', date: '2012-01-07', group: 'codejp' },
+  { code: 'DE01',  name: 'Duelist Edition Volume 1', date: '2012-05-12', group: 'codejp' },
+  { code: 'GS05',  name: 'Gold Series 2013', date: '2013-01-12', group: 'codejp' },
+  { code: 'DP18',  name: 'Duelist Pack: Legend Duelist', jp: 'レジェンドデュエリスト編', date: '2017-06-03', group: 'codejp' },
+  { code: 'DP28',  name: 'Duelist Pack: Duelists of Explosion', jp: '爆炎のデュエリスト編', date: '2023-05-27', group: 'codejp' },
+  { code: 'WPP4',  name: 'World Premiere Pack 2023', date: '2023-09-23', group: 'codejp' },
+  { code: 'LEDE',  name: 'Legacy of Destruction', jp: 'レガシー・オブ・デストラクション', date: '2024-01-27', group: 'codejp' },
+  { code: 'INFO',  name: 'The Infinite Forbidden', jp: 'インフィニット・フォビドゥン', date: '2024-04-27', group: 'codejp' },
+  { code: 'WPP5',  name: 'World Premiere Pack 2024', date: '2024-09-28', group: 'codejp' },
+  { code: 'WPP6',  name: 'World Premiere Pack 2025', date: '2025-09-27', group: 'codejp' },
+  { code: 'RV01',  name: 'Revolution Booster: Toon / Witchcrafter / Unchained', jp: 'トゥーン・ウィッチクラフト・破械', date: '2026-05-30', group: 'codejp' },
 ];
 
 // Product picture for each set (booster pack or deck box), shown on the set tiles.
@@ -353,6 +366,8 @@ const SET_IMG = {
   AC04: 'ac04.png', EE1: 'ee1.png', EE2: 'ee2.png', CDIP: 'cdip.png', CSOC: 'csoc.png',
   EXP1: 'exp1.png', CRMS: 'crms.png', BPRO: 'bpro.png', BLZD: 'blzd.png',
   LB: 'lb.jpg', YU: 'yu.png', '304': '304.jpg', SD4: 'sd4.png', GLAS: 'glas.png', GDB1: 'gdb1.png',
+  PTDN: 'ptdn.png', GENF: 'genf.png', GS04: 'gs04.png', DE01: 'de01.png', GS05: 'gs05.png', DP18: 'dp18.png',
+  DP28: 'dp28.png', WPP4: 'wpp4.png', LEDE: 'lede.png', INFO: 'info.png', WPP5: 'wpp5.png', WPP6: 'wpp6.png', RV01: 'rv01.png',
 };
 SETS.forEach(s => { if (SET_IMG[s.code]) s.img = 'photos/sets/' + SET_IMG[s.code]; });
 
@@ -416,6 +431,23 @@ const CARDS = [
   { set: 'AC04', code: 'AC04-JP056', name: 'Polymerization', jp: '融合',                   type: 'Spell',                                img: 'photos/ac04-jp056.png' },
   { set: 'BPRO', code: 'BPRO-JP078', name: 'Arsenal Audit',   jp: '武器庫整理',             type: 'Trap',                               img: 'photos/bpro-jp078.png' },
   { set: 'BLZD', code: 'BLZD-JP007', name: 'Night Train Blue Traveler', jp: '夜光列車ブルートラベラー', type: 'Effect Monster', attr: 'EARTH', lv: 10, img: 'photos/blzd-jp007.png' },
+  { set: 'GLAS', code: 'GLAS-JP061', name: 'Cunning of the Six Samurai', jp: '六武衆の理',       type: 'Spell',                              img: 'photos/glas-jp061.jpg' },
+  { set: 'PTDN', code: 'PTDN-JP050', name: 'Spell Chronicle', jp: 'マジック・クロニクル',     type: 'Spell',                              img: 'photos/ptdn-jp050.jpg' },
+  { set: 'GENF', code: 'GENF-JP050', name: 'Crashbug Road',   jp: 'バグ・ロード',             type: 'Spell',                              img: 'photos/genf-jp050.jpg' },
+  { set: 'GS04', code: 'GS04-JP007', name: 'Armageddon Knight', jp: '終末の騎士',             type: 'Effect Monster', attr: 'DARK',  lv: 4, img: 'photos/gs04-jp007.jpg' },
+  { set: 'DE01', code: 'DE01-JP029', name: 'Vehicroid Connection Zone', jp: 'ビークロイド・コネクション・ゾーン', type: 'Spell',          img: 'photos/de01-jp029.png' },
+  { set: 'GS05', code: 'GS05-JP001', name: 'Reflect Bounder', jp: '魔鏡導士リフレクト・バウンダー', type: 'Effect Monster', attr: 'LIGHT', lv: 4, img: 'photos/gs05-jp001.png' },
+  { set: 'GS05', code: 'GS05-JP013', name: 'Mind Control',    jp: '精神操作',                 type: 'Spell',                              img: 'photos/gs05-jp013.png' },
+  { set: 'DP18', code: 'DP18-JP038', name: 'Bonding - D2O',   jp: 'ボンディング－Ｄ２Ｏ',     type: 'Spell',                              img: 'photos/dp18-jp038.png' },
+  { set: 'DP28', code: 'DP28-JP013', name: 'Salamangreat Sanctuary', jp: '転生炎獣の聖域',   type: 'Spell',                              img: 'photos/dp28-jp013.png' },
+  { set: 'WPP4', code: 'WPP4-JP011', name: 'Gate Guardian',   jp: 'ゲート・ガーディアン',     type: 'Effect Monster', attr: 'DARK',  lv: 11, img: 'photos/wpp4-jp011.png' },
+  { set: 'WPP4', code: 'WPP4-JP012', name: 'Sanga of the Thunder', jp: '雷魔神－サンガ',      type: 'Effect Monster', attr: 'LIGHT', lv: 7, img: 'photos/wpp4-jp012.png' },
+  { set: 'LEDE', code: 'LEDE-JP025', name: 'Wightlord',       jp: 'ワイトロード',             type: 'Effect Monster', attr: 'LIGHT', lv: 1, img: 'photos/lede-jp025.png' },
+  { set: 'INFO', code: 'INFO-JP065', name: 'Trap Gatherer',   jp: 'トラップ・ギャザー',       type: 'Spell',                              img: 'photos/info-jp065.png' },
+  { set: 'WPP5', code: 'WPP5-JP009', name: 'Salamandra with Chain', jp: '鎖付き飛龍炎刃',     type: 'Trap',                               img: 'photos/wpp5-jp009.png' },
+  { set: 'WPP6', code: 'WPP6-JP069', name: 'Curse of the Ancient Turtle', jp: '古代亀の呪い', type: 'Spell',                              img: 'photos/wpp6-jp069.png' },
+  { set: 'RV01', code: 'RV01-JP008', name: 'Blue-Eyes Toon Dragon', jp: 'ブルーアイズ・トゥーン・ドラゴン', type: 'Toon Monster', attr: 'LIGHT', lv: 8, img: 'photos/rv01-jp008.png' },
+  { set: 'RV01', code: 'RV01-JP022', name: 'Toon Terror',     jp: 'トゥーン・テラー',         type: 'Trap',                               img: 'photos/rv01-jp022.png' },
 ];
 
 // When each card FIRST came out in Japan (any set), from Yugipedia's Japanese set lists.
@@ -471,6 +503,23 @@ const FIRST = {
   '304-043':    ['2002-11-21', 'Power of the Guardian'],
   'SD4-JP032':  ['2004-08-05', 'Rise of Destiny'],
   'GLAS-JP070': ['2007-07-21', "Gladiator's Assault"],
+  'WPP4-JP011': ['1999-08-26', 'Tokyo Dome event card'],
+  'WPP4-JP012': ['1999-09-23', 'Vol.5'],
+  'RV01-JP008': ['2000-07-13', "Pharaoh's Servant"],
+  'GS05-JP001': ['2002-11-21', 'Power of the Guardian'],
+  'GS05-JP013': ['2004-12-30', 'Duel Monsters International 2 game promo'],
+  'DE01-JP029': ['2006-05-18', 'Power of the Duelist'],
+  'GLAS-JP061': ['2007-07-21', "Gladiator's Assault"],
+  'GS04-JP007': ['2007-11-23', 'Phantom Darkness'],
+  'PTDN-JP050': ['2007-11-23', 'Phantom Darkness'],
+  'GENF-JP050': ['2011-04-16', 'Generation Force'],
+  'DP18-JP038': ['2017-06-03', 'Duelist Pack: Legend Duelist'],
+  'DP28-JP013': ['2018-07-14', 'Soul Fusion'],
+  'RV01-JP022': ['2020-10-03', 'World Premiere Pack 2020'],
+  'LEDE-JP025': ['2024-01-27', 'Legacy of Destruction'],
+  'INFO-JP065': ['2024-04-27', 'The Infinite Forbidden'],
+  'WPP5-JP009': ['2024-09-28', 'World Premiere Pack 2024'],
+  'WPP6-JP069': ['2025-09-27', 'World Premiere Pack 2025'],
 };
 
 /* ===================================================================== */
