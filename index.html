@@ -268,7 +268,6 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
   <section class="notes">
     <h2>Still to check</h2>
     <ul>
-      <li><b>EXPP1-JP009:</b> probably a typo for <code>EXP1</code> (Extra Pack, 2008-09-13). Not confirmed, so it's not in the list yet.</li>
       <li><b>BE2 and BE02</b> are two different sets: Beginner's Edition 2 from 2004 and the 2011 one.</li>
       <li><b>Dates:</b> the KA date comes from one card's listing (KA-18), and the SD11 date had a conflicting year on the source page.</li>
     </ul>
@@ -314,15 +313,23 @@ const SETS = [
   { code: 'KA',    name: 'Structure Deck: Kaiba', jp: '海馬編', date: '2002-01-24', group: 'code', unsure: 'Date from one card listing' },
   { code: '301',   name: 'The New Ruler', jp: '新たなる支配者', date: '2002-05-16', group: 'code', sample: '301-001' },
   { code: '302',   name: 'Advent of Union', jp: 'ユニオンの降臨', date: '2002-07-18', group: 'code', sample: '302-001' },
+  { code: 'EE1',   name: 'Expert Edition Volume 1', date: '2004-09-23', group: 'codejp' },
   { code: 'BE2',   name: "Beginner's Edition 2", date: '2004-12-09', group: 'codejp', note: 'Not the same as BE02' },
+  { code: 'EE2',   name: 'Expert Edition Volume 2', date: '2005-03-17', group: 'codejp' },
+  { code: 'CDIP',  name: 'Cyberdark Impact', jp: 'サイバーダーク・インパクト', date: '2006-08-10', group: 'codejp' },
   { code: 'SD11',  name: 'Structure Deck SD11', jp: '閃光の波動', date: '2006-12-14', group: 'codejp', unsure: 'Date not certain' },
   { code: 'FOTB',  name: 'Force of the Breaker', jp: 'フォース・オブ・ザ・ブレイカー', date: '2007-02-15', group: 'codejp' },
+  { code: 'CSOC',  name: 'Crossroads of Chaos', jp: 'クロスローズ・オブ・カオス', date: '2008-07-19', group: 'codejp' },
+  { code: 'EXP1',  name: 'Extra Pack', date: '2008-09-13', group: 'codejp' },
+  { code: 'CRMS',  name: 'Crimson Crisis', jp: 'クリムゾン・クライシス', date: '2008-11-15', group: 'codejp' },
   { code: 'SD18', name: 'Structure Deck: Machiners Command', date: '2009-12-12', group: 'codejp' },
   { code: 'BE02',  name: "Beginner's Edition 2 (2011)", date: '2011-08-13', group: 'codejp', note: 'Not the same as BE2' },
   { code: 'EXP4',  name: 'Extra Pack Volume 4', date: '2011-09-17', group: 'codejp' },
   { code: '20AP',  name: '20th Anniversary Pack 1st Wave', date: '2016-12-17', group: 'codejp' },
   { code: 'AGOV',  name: 'Age of Overlord', jp: 'エイジ・オブ・オーバーロード', date: '2023-07-22', group: 'codejp' },
   { code: 'AC04',  name: 'Animation Chronicle 2024', jp: 'アニメーションクロニクル2024', date: '2024-06-22', group: 'codejp' },
+  { code: 'BPRO',  name: 'Burst Protocol', jp: 'バースト・プロトコル', date: '2025-10-25', group: 'codejp' },
+  { code: 'BLZD',  name: 'Blazing Dominion', jp: 'ブレイジング・ドミニオン', date: '2026-01-24', group: 'codejp' },
 ];
 
 // Product picture for each set (booster pack or deck box), shown on the set tiles.
@@ -331,7 +338,8 @@ const SET_IMG = {
   RB: 'rb.png', EX: 'ex.png', TB: 'tb.jpg', ME: 'me.jpg', SM: 'sm.png', KA: 'ka.png',
   '301': '301.png', '302': '302.jpg', BE2: 'be2.png', SD11: 'sd11.png', SD18: 'sd18.png',
   BE02: 'be02.png', EXP4: 'exp4.png', FOTB: 'fotb.jpg', '20AP': '20ap.png', AGOV: 'agov.png',
-  AC04: 'ac04.png',
+  AC04: 'ac04.png', EE1: 'ee1.png', EE2: 'ee2.png', CDIP: 'cdip.png', CSOC: 'csoc.png',
+  EXP1: 'exp1.png', CRMS: 'crms.png', BPRO: 'bpro.png', BLZD: 'blzd.png',
 };
 SETS.forEach(s => { if (SET_IMG[s.code]) s.img = 'photos/sets/' + SET_IMG[s.code]; });
 
@@ -357,11 +365,26 @@ const CARDS = [
   { set: 'KA', code: 'KA-45', name: 'Lord of D.',       jp: 'ロード・オブ・ドラゴン－ドラゴンの支配者－', type: 'Effect Monster', attr: 'DARK', lv: 4, img: 'photos/ka-45.jpg' },
   { set: '301', code: '301-035', name: 'Dark Snake Syndrome', jp: '黒蛇病',       type: 'Spell',                                img: 'photos/301-035.png' },
   { set: '302', code: '302-012', name: 'Giant Orc',     jp: 'ジャイアント・オーク',     type: 'Effect Monster', attr: 'DARK',  lv: 4, img: 'photos/302-012.jpg' },
+  { set: 'EE1', code: 'EE1-JP016', name: 'A Man with Wdjat',  jp: 'ウジャト眼を持つ男',     type: 'Effect Monster', attr: 'DARK',  lv: 4, img: 'photos/ee1-jp016.jpg' },
+  { set: 'EE1', code: 'EE1-JP092', name: 'Metalsilver Armor', jp: 'メタルシルバー・アーマー', type: 'Spell',                              img: 'photos/ee1-jp092.jpg' },
+  { set: 'EE1', code: 'EE1-JP124', name: 'Magical Marionette', jp: '魔法の操り人形',        type: 'Effect Monster', attr: 'DARK',  lv: 5, img: 'photos/ee1-jp124.jpg' },
+  { set: 'EE1', code: 'EE1-JP226', name: 'Iron Blacksmith Kotetsu', jp: '名工 虎鉄',        type: 'Effect Monster', attr: 'FIRE',  lv: 2, img: 'photos/ee1-jp226.jpg' },
+  { set: 'BE2', code: 'BE2-JP068', name: 'Bladefly',          jp: 'ブレードフライ',         type: 'Effect Monster', attr: 'WIND',  lv: 2, img: 'photos/be2-jp068.jpg' },
+  { set: 'EE2', code: 'EE2-JP213', name: 'The Second Sarcophagus', jp: '第二の棺',          type: 'Spell',                              img: 'photos/ee2-jp213.jpg' },
+  { set: 'CDIP', code: 'CDIP-JP048', name: 'Senet Switch',    jp: 'ポジションチェンジ',     type: 'Spell',                              img: 'photos/cdip-jp048.jpg' },
   { set: 'FOTB', code: 'FOTB-JP012', name: 'Volcanic Slicer', jp: 'ヴォルカニック・エッジ', type: 'Effect Monster', attr: 'FIRE', lv: 4, img: 'photos/fotb-jp012.jpg' },
+  { set: 'CSOC', code: 'CSOC-JP006', name: 'Morphtronic Celfon', jp: 'Ｄ・モバホン',        type: 'Effect Monster', attr: 'EARTH', lv: 1, img: 'photos/csoc-jp006.jpg' },
+  { set: 'CSOC', code: 'CSOC-JP046', name: 'Seed of Deception', jp: '偽りの種',             type: 'Spell',                              img: 'photos/csoc-jp046.jpg' },
+  { set: 'EXP1', code: 'EXP1-JP009', name: 'Fossil Tusker',   jp: 'マンモ・フォッシル',     type: 'Effect Monster', attr: 'EARTH', lv: 4, img: 'photos/exp1-jp009.png' },
+  { set: 'CRMS', code: 'CRMS-JP029', name: 'Flip Flop Frog',  jp: '裏ガエル',               type: 'Effect Monster', attr: 'WATER', lv: 2, img: 'photos/crms-jp029.jpg' },
+  { set: 'BE02', code: 'BE02-JP172', name: 'Jowls of Dark Demise', jp: 'Ｘ・Ｅ・Ｎ・Ｏ',     type: 'Effect Monster', attr: 'WATER', lv: 2, img: 'photos/be02-jp172.jpg' },
+  { set: 'EXP4', code: 'EXP4-JP015', name: 'Dark Desertapir', jp: 'ダーク砂バク',           type: 'Effect Monster', attr: 'EARTH', lv: 2, img: 'photos/exp4-jp015.jpg' },
   { set: '20AP', code: '20AP-JP014', name: 'Morphing Jar',    jp: 'メタモルポット',         type: 'Effect Monster', attr: 'EARTH', lv: 2, img: 'photos/20ap-jp014.png' },
   { set: 'AGOV', code: 'AGOV-JP024', name: 'Tarai',           jp: '陀羅威',                 type: 'Effect Monster', attr: 'EARTH', lv: 4, img: 'photos/agov-jp024.png' },
   { set: 'AGOV', code: 'AGOV-JP047', name: 'Pendulum Evolution', jp: 'ペンデュラム・エボリューション', type: 'Spell',              img: 'photos/agov-jp047.png' },
   { set: 'AC04', code: 'AC04-JP056', name: 'Polymerization', jp: '融合',                   type: 'Spell',                                img: 'photos/ac04-jp056.png' },
+  { set: 'BPRO', code: 'BPRO-JP078', name: 'Arsenal Audit',   jp: '武器庫整理',             type: 'Trap',                               img: 'photos/bpro-jp078.png' },
+  { set: 'BLZD', code: 'BLZD-JP007', name: 'Night Train Blue Traveler', jp: '夜光列車ブルートラベラー', type: 'Effect Monster', attr: 'EARTH', lv: 10, img: 'photos/blzd-jp007.png' },
 ];
 
 // When each card FIRST came out in Japan (any set), from Yugipedia's Japanese set lists.
@@ -391,6 +414,21 @@ const FIRST = {
   'AGOV-JP024': ['2023-07-22', 'Age of Overlord'],
   'AGOV-JP047': ['2023-07-22', 'Age of Overlord'],
   'AC04-JP056': ['1999-03-06', 'Starter Box (movie release)'],
+  'BE2-JP068':  ['1999-11-18', 'Vol.6'],
+  'BE02-JP172': ['2002-03-21', 'Pharaonic Guardian'],
+  'EE1-JP016':  ['2002-05-16', 'The New Ruler'],
+  'EE1-JP092':  ['2002-07-18', 'Advent of Union'],
+  'EE1-JP124':  ['2002-09-19', 'Champion of Black Magic'],
+  'EE1-JP226':  ['2003-02-20', 'Threat of the Dark Demon World'],
+  'EE2-JP213':  ['2004-02-26', "Pharaoh's Inheritance"],
+  'CDIP-JP048': ['2006-08-10', 'Cyberdark Impact'],
+  'CSOC-JP006': ['2008-07-19', 'Crossroads of Chaos'],
+  'CSOC-JP046': ['2008-07-19', 'Crossroads of Chaos'],
+  'EXP1-JP009': ['2008-09-13', 'Extra Pack'],
+  'CRMS-JP029': ['2008-11-15', 'Crimson Crisis'],
+  'EXP4-JP015': ['2011-09-17', 'Extra Pack Volume 4'],
+  'BPRO-JP078': ['2025-10-25', 'Burst Protocol'],
+  'BLZD-JP007': ['2026-01-24', 'Blazing Dominion'],
 };
 
 /* ===================================================================== */
