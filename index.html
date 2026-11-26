@@ -268,6 +268,7 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
   <section class="notes">
     <h2>Still to check</h2>
     <ul>
+      <li><b>Doma and Pale Beast</b> (no code) were also in the EX Starter Box (Dec 1999), and the cards look the same. They're filed under Vol.4 and Vol.5, their first printings.</li>
       <li><b>BE2 and BE02</b> are two different sets: Beginner's Edition 2 from 2004 and the 2011 one.</li>
       <li><b>Dates:</b> the KA date comes from one card's listing (KA-18), and the SD11 date had a conflicting year on the source page.</li>
     </ul>
@@ -300,6 +301,9 @@ const GROUPS = [
 
 const SETS = [
   { code: 'Vol.2', name: 'Volume 2', date: '1999-03-27', group: 'nocode', sample: 'no code' },
+  { code: 'Vol.4', name: 'Volume 4', date: '1999-07-22', group: 'nocode', sample: 'no code' },
+  { code: 'Vol.5', name: 'Volume 5', date: '1999-09-23', group: 'nocode', sample: 'no code' },
+  { code: 'Vol.7', name: 'Volume 7', date: '2000-01-27', group: 'nocode', sample: 'no code' },
   { code: 'MR',    name: 'Magic Ruler', date: '2000-04-20', group: 'code' },
   { code: 'PS',    name: "Pharaoh's Servant", date: '2000-07-13', group: 'code' },
   { code: 'PG',    name: 'Phantom God', jp: '幻の召喚神', date: '2000-08-10', group: 'code' },
@@ -334,7 +338,7 @@ const SETS = [
 
 // Product picture for each set (booster pack or deck box), shown on the set tiles.
 const SET_IMG = {
-  'Vol.2': 'vol2.jpg', MR: 'mr.jpg', PS: 'ps.jpg', PG: 'pg.jpg', B2: 'b2.png', CA: 'ca.jpg',
+  'Vol.2': 'vol2.jpg', 'Vol.4': 'vol4.jpg', 'Vol.5': 'vol5.jpg', 'Vol.7': 'vol7.jpg', MR: 'mr.jpg', PS: 'ps.jpg', PG: 'pg.jpg', B2: 'b2.png', CA: 'ca.jpg',
   RB: 'rb.png', EX: 'ex.png', TB: 'tb.jpg', ME: 'me.jpg', SM: 'sm.png', KA: 'ka.png',
   '301': '301.png', '302': '302.jpg', BE2: 'be2.png', SD11: 'sd11.png', SD18: 'sd18.png',
   BE02: 'be02.png', EXP4: 'exp4.png', FOTB: 'fotb.jpg', '20AP': '20ap.png', AGOV: 'agov.png',
@@ -346,6 +350,12 @@ SETS.forEach(s => { if (SET_IMG[s.code]) s.img = 'photos/sets/' + SET_IMG[s.code
 const CARDS = [
   // { set: 'MR', code: 'MR-001', name: 'Card name', img: 'photos/mr-001.jpg' },
   // type, attr and level are saved for sorting later.
+  // Codeless cards: code is '' and the name is used as the key instead (also in FIRST).
+  { set: 'Vol.2', code: '', name: 'Holograh',         jp: 'ホログラー',               type: 'Normal Monster', attr: 'EARTH', lv: 3, img: 'photos/vol2-holograh.jpg' },
+  { set: 'Vol.4', code: '', name: 'Doma The Angel of Silence', jp: '死の沈黙の天使 ドマ', type: 'Normal Monster', attr: 'DARK', lv: 5, img: 'photos/vol4-doma.jpg' },
+  { set: 'Vol.5', code: '', name: 'Toad Master',      jp: 'トードマスター',           type: 'Normal Monster', attr: 'WATER', lv: 3, img: 'photos/vol5-toad-master.png' },
+  { set: 'Vol.5', code: '', name: 'Pale Beast',       jp: 'ペイルビースト',           type: 'Normal Monster', attr: 'EARTH', lv: 4, img: 'photos/vol5-pale-beast.png' },
+  { set: 'Vol.7', code: '', name: 'Sword of Deep-Seated', jp: '執念の剣',             type: 'Spell',                                img: 'photos/vol7-sword-of-deep-seated.jpg' },
   { set: 'MR', code: 'MR-11', name: 'Peacock',          jp: 'クジャック',               type: 'Normal Monster', attr: 'WIND',  lv: 5, img: 'photos/mr-11.jpg' },
   { set: 'MR', code: 'MR-50', name: 'Snake Fang',       jp: '毒蛇の牙',                 type: 'Trap',                                 img: 'photos/mr-50.png' },
   { set: 'PS', code: 'PS-15', name: 'Turtle Oath',      jp: '亀の誓い',                 type: 'Spell',                                img: 'photos/ps-15.jpg' },
@@ -503,8 +513,9 @@ function openSet(code) {
 }
 // All cards wall, oldest set first, then by card number
 const setOf = code => SETS.find(s => s.code === code);
+const cid = c => c.code || c.name;
 const cnum = c => parseInt(c.code.split('-').pop().replace(/\D/g, ''), 10) || 0;
-const firstOf = c => FIRST[c.code] || [setOf(c.set).date, setOf(c.set).name];
+const firstOf = c => FIRST[cid(c)] || [setOf(c.set).date, setOf(c.set).name];
 const month = d => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
 let sortBy = 'set', year = 'all';
 try { sortBy = localStorage.getItem('cc-sort') || 'set'; } catch (e) {}
@@ -512,8 +523,8 @@ try { sortBy = localStorage.getItem('cc-sort') || 'set'; } catch (e) {}
 function wallCard(c) {
   const sub = sortBy === 'first'
     ? `<span class="first">First: ${month(firstOf(c)[0])}</span><span>${firstOf(c)[1]}</span>`
-    : `<span>${c.code}</span>`;
-  return `<figure class="wcard" tabindex="0" role="button" data-code="${c.code}">
+    : `<span>${c.code || 'no code'}</span>`;
+  return `<figure class="wcard" tabindex="0" role="button" data-code="${cid(c)}">
     <img src="${c.img}" alt="${c.name}" loading="lazy">
     <figcaption>${c.name}${sub}</figcaption>
   </figure>`;
@@ -537,7 +548,7 @@ function renderWall() {
         <div class="wall">${inYear.map(wallCard).join('')}</div>`;
     }).join('');
   } else {
-    cards.sort((a, b) => setOf(a.set).date.localeCompare(setOf(b.set).date) || cnum(a) - cnum(b));
+    cards.sort((a, b) => setOf(a.set).date.localeCompare(setOf(b.set).date) || cnum(a) - cnum(b) || a.name.localeCompare(b.name));
     $('#years').hidden = true;
     $('#wall-note').textContent = 'Every card I have a picture of, by the set my copy comes from, oldest first. Tap a card to see it big.';
     $('#wall').innerHTML = `<div class="wall">${cards.map(wallCard).join('')}</div>`;
@@ -557,13 +568,13 @@ $('#years').onclick = e => {
 };
 
 function openCard(code) {
-  const c = CARDS.find(c => c.code === code), s = setOf(c.set);
+  const c = CARDS.find(c => cid(c) === code), s = setOf(c.set);
   const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : '';
   $('#dv').innerHTML = `<div class="dv-top"><div>
       <h3>${c.name}</h3>${c.jp ? `<div class="sub jp">${c.jp}</div>` : ''}
     </div><button class="x" aria-label="Close">×</button></div>
     <div class="big"><img src="${c.img}" alt="${c.name}">
-      <dl>${row('Code', c.code)}${row('My copy', s.name + ', ' + fmt(s.date))}${row('First released', firstOf(c)[1] + ', ' + fmt(firstOf(c)[0]))}${row('Type', c.type)}${row('Attribute', c.attr)}${row('Level', c.lv)}</dl>
+      <dl>${row('Code', c.code || 'None printed')}${row('My copy', s.name + ', ' + fmt(s.date))}${row('First released', firstOf(c)[1] + ', ' + fmt(firstOf(c)[0]))}${row('Type', c.type)}${row('Attribute', c.attr)}${row('Level', c.lv)}</dl>
     </div>`;
   $('#viewer').showModal();
 }

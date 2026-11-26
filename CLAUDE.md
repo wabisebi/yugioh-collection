@@ -13,7 +13,8 @@ A personal page for Seb's second-hand Japanese Yu-Gi-Oh! cards (about 100, picke
   - `GROUPS`: the three groups by what's printed under the art: `nocode` (no code), `code` (code without JP, including number codes like 301), `codejp` (code with JP).
   - `SETS`: one line per set (`code`, `name`, `jp`, `date` = Japanese release, `group`, optional `unsure` / `note` / `sample`). Groups sort by date by themselves.
   - `SET_IMG`: set code -> file in `photos/sets/` (the Japanese booster pack or deck box picture). Set tiles show this, never a card.
-  - `CARDS`: one line per card (`set`, `code`, `name`, `jp`, `type`, `attr`, `lv`, `img`).
+  - `CARDS`: one line per card (`set`, `code`, `name`, `jp`, `type`, `attr`, `lv`, `img`). Codeless cards have `code: ''` and are keyed by `name` (also in `FIRST`); their scans are `photos/<set>-<name-slug>.<ext>`, e.g. `photos/vol5-pale-beast.png`.
+  - Seb sends codeless cards as romaji names (e.g. `PEIRUBIIZUTO` = ペイルビースト = Pale Beast). Use the card's codeless `jp_sets` lines to pick the set; if it was in more than one codeless set (often a Vol. plus the EX Starter Box, which look the same), file it under the first one and note it in "Still to check".
   - `FIRST`: card code -> [date, set name] of the card's FIRST Japanese release in any set (used by "First released" order on All cards). Seb's copy is often a later reprint.
 - `photos/<code lowercase>.<ext>`: card scans, e.g. `photos/mr-11.jpg`, `photos/fotb-jp012.jpg`.
 - `photos/sets/<set lowercase>.<ext>`: set pictures.
