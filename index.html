@@ -271,7 +271,6 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
     <h2>Still to check</h2>
     <ul>
       <li><b>Doma and Pale Beast</b> (no code) were also in the EX Starter Box (Dec 1999), and the cards look the same. They're filed under Vol.4 and Vol.5, their first printings.</li>
-      <li><b>DBVG-JP012:</b> no such code. Closest: <code>DBVS-JP012</code> Mementotlan Cranium Burst (Valiant Smashers) or <code>DBGI-JP012</code> Magistus Vritra (Genesis Impactors). Not added yet.</li>
       <li><b>BE2 and BE02</b> are two different sets: Beginner's Edition 2 from 2004 and the 2011 one.</li>
       <li><b>SD11 date:</b> the source page had a conflicting year.</li>
     </ul>
@@ -356,6 +355,7 @@ const SETS = [
   { code: 'WPP5',  name: 'World Premiere Pack 2024', date: '2024-09-28', group: 'codejp' },
   { code: 'WPP6',  name: 'World Premiere Pack 2025', date: '2025-09-27', group: 'codejp' },
   { code: 'RV01',  name: 'Revolution Booster: Toon / Witchcrafter / Unchained', jp: 'トゥーン・ウィッチクラフト・破械', date: '2026-05-30', group: 'codejp' },
+  { code: 'DBGV', name: 'Deck-Build Pack: Glorious Victors', jp: 'グロリアス・ヴィクターズ', date: '2026-09-05', group: 'codejp' },
   { code: 'DL3', name: 'Duelist Legacy Volume 3', date: '2002-12-12', group: 'code' },
   { code: 'SD3', name: 'Structure Deck: Blaze of Destruction', jp: '灼熱の大地', date: '2005-01-20', group: 'codejp' },
   { code: 'SD5', name: "Structure Deck: Warrior's Triumph", jp: '戦士の伝説', date: '2005-06-16', group: 'codejp' },
@@ -395,7 +395,7 @@ const SET_IMG = {
   EXP1: 'exp1.png', CRMS: 'crms.png', BPRO: 'bpro.png', BLZD: 'blzd.png',
   LB: 'lb.jpg', YU: 'yu.png', '304': '304.jpg', SD4: 'sd4.png', GLAS: 'glas.png', GDB1: 'gdb1.png',
   PTDN: 'ptdn.png', GENF: 'genf.png', GS04: 'gs04.png', DE01: 'de01.png', GS05: 'gs05.png', DP18: 'dp18.png',
-  DP28: 'dp28.png', WPP4: 'wpp4.png', LEDE: 'lede.png', INFO: 'info.png', WPP5: 'wpp5.png', WPP6: 'wpp6.png', RV01: 'rv01.png',
+  DP28: 'dp28.png', WPP4: 'wpp4.png', LEDE: 'lede.png', INFO: 'info.png', WPP5: 'wpp5.png', WPP6: 'wpp6.png', RV01: 'rv01.png', DBGV: 'dbgv.png',
   DL3: 'dl3.png', SD3: 'sd3.png', SD5: 'sd5.png', SD10: 'sd10.png', DP04: 'dp04.jpg', SD13: 'sd13.png', SD17: 'sd17.png', SOVR: 'sovr.jpg', STOR: 'stor.png', SD20: 'sd20.png', SD21: 'sd21.png', ST12: 'st12.png', ST14: 'st14.png', DC01: 'dc01.png', SD27: 'sd27.png', SR01: 'sr01.png', DP17: 'dp17.png', SDMY: 'sdmy.png', SR03: 'sr03.png', SD32: 'sd32.png', SD33: 'sd33.png', SAST: 'sast.png', DP24: 'dp24.png', DUNE: 'dune.png', SD47: 'sd47.png', DBJH: 'dbjh.png', DUAD: 'duad.png',
 };
 SETS.forEach(s => { if (SET_IMG[s.code]) s.img = 'photos/sets/' + SET_IMG[s.code]; });
@@ -477,6 +477,7 @@ const CARDS = [
   { set: 'WPP6', code: 'WPP6-JP069', name: 'Curse of the Ancient Turtle', jp: '古代亀の呪い', type: 'Spell',                              img: 'photos/wpp6-jp069.png' },
   { set: 'RV01', code: 'RV01-JP008', name: 'Blue-Eyes Toon Dragon', jp: 'ブルーアイズ・トゥーン・ドラゴン', type: 'Toon Monster', attr: 'LIGHT', lv: 8, img: 'photos/rv01-jp008.png' },
   { set: 'RV01', code: 'RV01-JP022', name: 'Toon Terror',     jp: 'トゥーン・テラー',         type: 'Trap',                               img: 'photos/rv01-jp022.png' },
+  { set: 'DBGV', code: 'DBGV-JP012', name: 'Tri-Horned Dragon', jp: 'トライホーン・ドラゴン', type: 'Normal Monster', attr: 'DARK', lv: 8, img: 'photos/dbgv-jp012.png' },
   { set: 'DL3', code: 'DL3-028', name: 'Invitation to a Dark Sleep', jp: '暗黒の眠りを誘うルシファー', type: 'Effect Monster', attr: 'DARK', lv: 5, img: 'photos/dl3-028.jpg' },
   { set: 'SD3', code: 'SD3-JP008', name: 'Solar Flare Dragon', jp: 'プロミネンス・ドラゴン', type: 'Effect Monster', attr: 'FIRE', lv: 4, img: 'photos/sd3-jp008.jpg' },
   { set: 'SD3', code: 'SD3-JP016', name: 'Molten Destruction', jp: 'バーニングブラッド', type: 'Spell', img: 'photos/sd3-jp016.jpg' },
@@ -585,6 +586,7 @@ const FIRST = {
   'INFO-JP065': ['2024-04-27', 'The Infinite Forbidden'],
   'WPP5-JP009': ['2024-09-28', 'World Premiere Pack 2024'],
   'WPP6-JP069': ['2025-09-27', 'World Premiere Pack 2025'],
+  'DBGV-JP012': ['1999-08-26', 'Tokyo Dome event card'],
   'DL3-028': ['2000-12-14', 'Thousand Eyes Bible'],
   'SD3-JP008': ['2003-11-20', 'The Sanctuary in the Sky'],
   'SD3-JP016': ['2000-07-13', "Pharaoh's Servant"],
