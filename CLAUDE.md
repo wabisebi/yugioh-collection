@@ -31,5 +31,7 @@ Use the browser pane on a yugipedia.com tab and call the MediaWiki API with `fet
 ## Preview
 `preview_start` with name `cards` (Python's built-in server on port 8010, from `.claude/launch.json`). Outside Claude, double-click `index.html`.
 
-## Hosting
-Not online yet (26 Nov 2026).
+## Git and hosting
+- Private GitHub repo `wabisebi/yugioh-collection` (made 26 Nov 2026), branch `main`. Routine: pull when Seb sits down, commit and push when done.
+- Site: Cloudflare Pages with Cloudflare Access, private like the Japanese notebook (only Seb's login). Being set up 26 Nov 2026.
+- Keep it private: the page uses official card scans and pack pictures.
