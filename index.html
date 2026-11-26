@@ -242,7 +242,7 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
 <header class="hero wrap">
   <div class="kicker">Second-hand · Japanese · Picked for the art</div>
   <h1>My Card Collection</h1>
-  <p>About 100 Japanese cards, bought second-hand because I liked how they look. Sorted by the set they come from, oldest first.</p>
+  <p>Over 100 Japanese cards, bought second-hand because I liked how they look. Sorted by the set they come from, oldest first.</p>
   <div class="stats" id="stats"></div>
   <nav class="tabs" aria-label="Views">
     <a href="#sets" data-view="sets">By set</a>
@@ -271,6 +271,7 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
     <h2>Still to check</h2>
     <ul>
       <li><b>Doma and Pale Beast</b> (no code) were also in the EX Starter Box (Dec 1999), and the cards look the same. They're filed under Vol.4 and Vol.5, their first printings.</li>
+      <li><b>DBVG-JP012:</b> no such code. Closest: <code>DBVS-JP012</code> Mementotlan Cranium Burst (Valiant Smashers) or <code>DBGI-JP012</code> Magistus Vritra (Genesis Impactors). Not added yet.</li>
       <li><b>BE2 and BE02</b> are two different sets: Beginner's Edition 2 from 2004 and the 2011 one.</li>
       <li><b>SD11 date:</b> the source page had a conflicting year.</li>
     </ul>
@@ -355,6 +356,33 @@ const SETS = [
   { code: 'WPP5',  name: 'World Premiere Pack 2024', date: '2024-09-28', group: 'codejp' },
   { code: 'WPP6',  name: 'World Premiere Pack 2025', date: '2025-09-27', group: 'codejp' },
   { code: 'RV01',  name: 'Revolution Booster: Toon / Witchcrafter / Unchained', jp: 'トゥーン・ウィッチクラフト・破械', date: '2026-05-30', group: 'codejp' },
+  { code: 'DL3', name: 'Duelist Legacy Volume 3', date: '2002-12-12', group: 'code' },
+  { code: 'SD3', name: 'Structure Deck: Blaze of Destruction', jp: '灼熱の大地', date: '2005-01-20', group: 'codejp' },
+  { code: 'SD5', name: "Structure Deck: Warrior's Triumph", jp: '戦士の伝説', date: '2005-06-16', group: 'codejp' },
+  { code: 'SD10', name: 'Structure Deck: Machine Re-Volt', jp: '機械の叛乱', date: '2006-09-14', group: 'codejp' },
+  { code: 'DP04', name: 'Duelist Pack: Zane Truesdale', jp: 'ヘルカイザー編', date: '2006-10-26', group: 'codejp' },
+  { code: 'SD13', name: 'Structure Deck: Revival of the Great Dragon', jp: '巨竜の復活', date: '2007-06-23', group: 'codejp' },
+  { code: 'SD17', name: "Structure Deck: Warriors' Strike", jp: 'ウォリアーズ・ストライク', date: '2009-06-20', group: 'codejp' },
+  { code: 'SOVR', name: 'Stardust Overdrive', jp: 'スターダスト・オーバードライブ', date: '2009-07-18', group: 'codejp' },
+  { code: 'STOR', name: 'Storm of Ragnarok', jp: 'ストーム・オブ・ラグナロク', date: '2010-11-13', group: 'codejp' },
+  { code: 'SD20', name: 'Structure Deck: Lost Sanctuary', jp: 'ロスト・サンクチュアリ', date: '2010-12-11', group: 'codejp' },
+  { code: 'SD21', name: "Structure Deck: Devil's Gate", jp: 'デビルズ・ゲート', date: '2011-06-18', group: 'codejp' },
+  { code: 'ST12', name: 'Starter Deck 2012', date: '2012-03-17', group: 'codejp' },
+  { code: 'ST14', name: 'Starter Deck 2014', date: '2014-03-21', group: 'codejp' },
+  { code: 'DC01', name: 'Deck Custom Pack 01', jp: 'デッキカスタムパック01', date: '2014-04-19', group: 'codejp' },
+  { code: 'SD27', name: "Structure Deck: HERO's Strike", date: '2014-06-21', group: 'codejp' },
+  { code: 'SR01', name: 'Structure Deck R: Advent of the True Monarch', jp: '真帝王降臨', date: '2015-09-19', group: 'codejp' },
+  { code: 'DP17', name: "Duelist Pack: Pharaoh's Memories", jp: '王の記憶編', date: '2016-06-04', group: 'codejp' },
+  { code: 'SDMY', name: 'Structure Deck: Yugi Muto', jp: '武藤遊戯', date: '2016-06-18', group: 'codejp' },
+  { code: 'SR03', name: 'Structure Deck R: Machine Dragon Re-Volt', jp: '機械竜叛乱', date: '2016-09-24', group: 'codejp' },
+  { code: 'SD32', name: 'Structure Deck: Cyberse Link', jp: 'サイバース・リンク', date: '2017-06-17', group: 'codejp' },
+  { code: 'SD33', name: 'Structure Deck: Powercode Link', jp: 'パワーコード・リンク', date: '2017-12-09', group: 'codejp' },
+  { code: 'SAST', name: 'Savage Strike', jp: 'サベージ・ストライク', date: '2018-10-13', group: 'codejp' },
+  { code: 'DP24', name: 'Duelist Pack: Duelists of Gloom', jp: '冥闇のデュエリスト編', date: '2020-05-30', group: 'codejp' },
+  { code: 'DUNE', name: 'Duelist Nexus', jp: 'デュエリスト・ネクサス', date: '2023-04-22', group: 'codejp' },
+  { code: 'SD47', name: 'Structure Deck: Advent of the Eyes of Blue', jp: '青き眼の光臨', date: '2024-09-07', group: 'codejp' },
+  { code: 'DBJH', name: 'Deck-Build Pack: Justice Hunters', jp: 'ジャスティス・ハンターズ', date: '2025-03-22', group: 'codejp' },
+  { code: 'DUAD', name: "Duelist's Advance", jp: 'デュエリスト・アドバンス', date: '2025-04-26', group: 'codejp' },
 ];
 
 // Product picture for each set (booster pack or deck box), shown on the set tiles.
@@ -368,6 +396,7 @@ const SET_IMG = {
   LB: 'lb.jpg', YU: 'yu.png', '304': '304.jpg', SD4: 'sd4.png', GLAS: 'glas.png', GDB1: 'gdb1.png',
   PTDN: 'ptdn.png', GENF: 'genf.png', GS04: 'gs04.png', DE01: 'de01.png', GS05: 'gs05.png', DP18: 'dp18.png',
   DP28: 'dp28.png', WPP4: 'wpp4.png', LEDE: 'lede.png', INFO: 'info.png', WPP5: 'wpp5.png', WPP6: 'wpp6.png', RV01: 'rv01.png',
+  DL3: 'dl3.png', SD3: 'sd3.png', SD5: 'sd5.png', SD10: 'sd10.png', DP04: 'dp04.jpg', SD13: 'sd13.png', SD17: 'sd17.png', SOVR: 'sovr.jpg', STOR: 'stor.png', SD20: 'sd20.png', SD21: 'sd21.png', ST12: 'st12.png', ST14: 'st14.png', DC01: 'dc01.png', SD27: 'sd27.png', SR01: 'sr01.png', DP17: 'dp17.png', SDMY: 'sdmy.png', SR03: 'sr03.png', SD32: 'sd32.png', SD33: 'sd33.png', SAST: 'sast.png', DP24: 'dp24.png', DUNE: 'dune.png', SD47: 'sd47.png', DBJH: 'dbjh.png', DUAD: 'duad.png',
 };
 SETS.forEach(s => { if (SET_IMG[s.code]) s.img = 'photos/sets/' + SET_IMG[s.code]; });
 
@@ -448,6 +477,42 @@ const CARDS = [
   { set: 'WPP6', code: 'WPP6-JP069', name: 'Curse of the Ancient Turtle', jp: '古代亀の呪い', type: 'Spell',                              img: 'photos/wpp6-jp069.png' },
   { set: 'RV01', code: 'RV01-JP008', name: 'Blue-Eyes Toon Dragon', jp: 'ブルーアイズ・トゥーン・ドラゴン', type: 'Toon Monster', attr: 'LIGHT', lv: 8, img: 'photos/rv01-jp008.png' },
   { set: 'RV01', code: 'RV01-JP022', name: 'Toon Terror',     jp: 'トゥーン・テラー',         type: 'Trap',                               img: 'photos/rv01-jp022.png' },
+  { set: 'DL3', code: 'DL3-028', name: 'Invitation to a Dark Sleep', jp: '暗黒の眠りを誘うルシファー', type: 'Effect Monster', attr: 'DARK', lv: 5, img: 'photos/dl3-028.jpg' },
+  { set: 'SD3', code: 'SD3-JP008', name: 'Solar Flare Dragon', jp: 'プロミネンス・ドラゴン', type: 'Effect Monster', attr: 'FIRE', lv: 4, img: 'photos/sd3-jp008.jpg' },
+  { set: 'SD3', code: 'SD3-JP016', name: 'Molten Destruction', jp: 'バーニングブラッド', type: 'Spell', img: 'photos/sd3-jp016.jpg' },
+  { set: 'SD5', code: 'SD5-JP022', name: 'Lightning Blade', jp: '稲妻の剣', type: 'Spell', img: 'photos/sd5-jp022.jpg' },
+  { set: 'SD10', code: 'SD10-JP009', name: 'Cannon Soldier', jp: 'キャノン・ソルジャー', type: 'Effect Monster', attr: 'DARK', lv: 4, img: 'photos/sd10-jp009.jpg' },
+  { set: 'SD10', code: 'SD10-JP028', name: 'Weapon Change', jp: 'ウェポンチェンジ', type: 'Spell', img: 'photos/sd10-jp028.jpg' },
+  { set: 'DP04', code: 'DP04-JP022', name: 'Overload Fusion', jp: 'オーバーロード・フュージョン', type: 'Spell', img: 'photos/dp04-jp022.jpg' },
+  { set: 'SD11', code: 'SD11-JP008', name: 'Dunames Dark Witch', jp: 'デュナミス・ヴァルキリア', type: 'Normal Monster', attr: 'LIGHT', lv: 4, img: 'photos/sd11-jp008.png' },
+  { set: 'SD13', code: 'SD13-JP019', name: 'Foolish Burial', jp: 'おろかな埋葬', type: 'Spell', img: 'photos/sd13-jp019.jpg' },
+  { set: 'SD13', code: 'SD13-JP020', name: 'The Shallow Grave', jp: '浅すぎた墓穴', type: 'Spell', img: 'photos/sd13-jp020.jpg' },
+  { set: 'SD17', code: 'SD17-JP015', name: 'Blazewing Butterfly', jp: '炎妖蝶ウィルプス', type: 'Effect Monster', attr: 'FIRE', lv: 4, img: 'photos/sd17-jp015.jpg' },
+  { set: 'SOVR', code: 'SOVR-JP015', name: 'Dark Spider', jp: 'ダーク・スパイダー', type: 'Effect Monster', attr: 'DARK', lv: 1, img: 'photos/sovr-jp015.jpg' },
+  { set: 'SOVR', code: 'SOVR-JP071', name: 'Roar of the Earthbound Immortal', jp: '地縛神の咆哮', type: 'Trap', img: 'photos/sovr-jp071.jpg' },
+  { set: 'SD18', code: 'SD18-JP031', name: 'Time Machine', jp: '時の機械－タイム・マシーン', type: 'Trap', img: 'photos/sd18-jp031.jpg' },
+  { set: 'SD18', code: 'SD18-JP033', name: 'Metalmorph', jp: 'メタル化・魔法反射装甲', type: 'Trap', img: 'photos/sd18-jp033.png' },
+  { set: 'STOR', code: 'STOR-JP023', name: 'Legendary Six Samurai - Shinai', jp: '真六武衆－シナイ', type: 'Effect Monster', attr: 'WATER', lv: 3, img: 'photos/stor-jp023.jpg' },
+  { set: 'SD20', code: 'SD20-JP006', name: 'The Agent of Creation - Venus', jp: '創造の代行者 ヴィーナス', type: 'Effect Monster', attr: 'LIGHT', lv: 3, img: 'photos/sd20-jp006.png' },
+  { set: 'SD21', code: 'SD21-JP034', name: 'Eradicator Epidemic Virus', jp: '闇のデッキ破壊ウイルス', type: 'Trap', img: 'photos/sd21-jp034.png' },
+  { set: 'ST12', code: 'ST12-JP015', name: 'Mysterious Guard', jp: '聖なる守り手', type: 'Effect Monster', attr: 'EARTH', lv: 3, img: 'photos/st12-jp015.jpg' },
+  { set: 'ST14', code: 'ST14-JP004', name: 'Millennium Shield', jp: '千年の盾', type: 'Normal Monster', attr: 'EARTH', lv: 5, img: 'photos/st14-jp004.png' },
+  { set: 'DC01', code: 'DC01-JP028', name: 'Magic Cylinder', jp: '魔法の筒', type: 'Trap', img: 'photos/dc01-jp028.png' },
+  { set: 'SD27', code: 'SD27-JP020', name: 'Mask Charge', jp: 'マスク・チャージ', type: 'Spell', img: 'photos/sd27-jp020.png' },
+  { set: 'SD27', code: 'SD27-JP027', name: 'H - Heated Heart', jp: 'Ｈ－ヒートハート', type: 'Spell', img: 'photos/sd27-jp027.png' },
+  { set: 'SR01', code: 'SR01-JP021', name: 'Battle Fader', jp: 'バトルフェーダー', type: 'Effect Monster', attr: 'DARK', lv: 1, img: 'photos/sr01-jp021.png' },
+  { set: 'DP17', code: 'DP17-JP039', name: 'Temple of the Kings', jp: '王家の神殿', type: 'Spell', img: 'photos/dp17-jp039.png' },
+  { set: 'SDMY', code: 'SDMY-JP030', name: 'Spell Shattering Arrow', jp: '魔法効果の矢', type: 'Spell', img: 'photos/sdmy-jp030.png' },
+  { set: 'SDMY', code: 'SDMY-JP040', name: 'Soul Rope', jp: '魂の綱', type: 'Trap', img: 'photos/sdmy-jp040.png' },
+  { set: 'SR03', code: 'SR03-JP023', name: 'Ancient Gear Castle', jp: '古代の機械城', type: 'Spell', img: 'photos/sr03-jp023.png' },
+  { set: 'SD32', code: 'SD32-JP018', name: 'Magician of Faith', jp: '聖なる魔術師', type: 'Effect Monster', attr: 'LIGHT', lv: 1, img: 'photos/sd32-jp018.png' },
+  { set: 'SD33', code: 'SD33-JP023', name: 'Night Beam', jp: 'ナイト・ショット', type: 'Spell', img: 'photos/sd33-jp023.png' },
+  { set: 'SAST', code: 'SAST-JP011', name: 'T.G. Tank Grub', jp: 'ＴＧ タンク・ラーヴァ', type: 'Effect Monster', attr: 'EARTH', lv: 1, img: 'photos/sast-jp011.png' },
+  { set: 'DP24', code: 'DP24-JP015', name: 'Metal Reflect Slime', jp: 'メタル・リフレクト・スライム', type: 'Trap', img: 'photos/dp24-jp015.png' },
+  { set: 'DUNE', code: 'DUNE-JP029', name: 'Greed Jar', jp: '強欲なポッド', type: 'Effect Monster', attr: 'EARTH', lv: 3, img: 'photos/dune-jp029.png' },
+  { set: 'SD47', code: 'SD47-JP025', name: 'Trade-In', jp: 'トレード・イン', type: 'Spell', img: 'photos/sd47-jp025.png' },
+  { set: 'DBJH', code: 'DBJH-JP012', name: 'Edge Imp Chain', jp: 'エッジインプ・チェーン', type: 'Effect Monster', attr: 'DARK', lv: 4, img: 'photos/dbjh-jp012.png' },
+  { set: 'DUAD', code: 'DUAD-JP071', name: 'Return of the Duelist', jp: 'リターン・オブ・ザ・デュエリスト', type: 'Spell', img: 'photos/duad-jp071.png' },
 ];
 
 // When each card FIRST came out in Japan (any set), from Yugipedia's Japanese set lists.
@@ -520,6 +585,42 @@ const FIRST = {
   'INFO-JP065': ['2024-04-27', 'The Infinite Forbidden'],
   'WPP5-JP009': ['2024-09-28', 'World Premiere Pack 2024'],
   'WPP6-JP069': ['2025-09-27', 'World Premiere Pack 2025'],
+  'DL3-028': ['2000-12-14', 'Thousand Eyes Bible'],
+  'SD3-JP008': ['2003-11-20', 'The Sanctuary in the Sky'],
+  'SD3-JP016': ['2000-07-13', "Pharaoh's Servant"],
+  'SD5-JP022': ['2001-04-19', 'Spell of Mask'],
+  'SD10-JP009': ['1999-11-18', 'Vol.6'],
+  'SD10-JP028': ['2003-11-20', 'The Sanctuary in the Sky'],
+  'DP04-JP022': ['2006-05-18', 'Power of the Duelist'],
+  'SD11-JP008': ['2000-07-13', 'Duel Monsters III game pre-order promo'],
+  'SD13-JP019': ['2003-08-07', 'Structure Deck: Joey Volume 2'],
+  'SD13-JP020': ['2000-09-28', 'Curse of Anubis'],
+  'SD17-JP015': ['2008-09-13', 'Extra Pack'],
+  'SOVR-JP015': ['2009-07-18', 'Stardust Overdrive'],
+  'SOVR-JP071': ['2009-07-18', 'Stardust Overdrive'],
+  'SD18-JP031': ['2000-08-10', 'Duel Monsters III game guide promo'],
+  'SD18-JP033': ['1999-12-09', 'Sealed Memories game promo'],
+  'STOR-JP023': ['2010-11-13', 'Storm of Ragnarok'],
+  'SD20-JP006': ['2003-11-20', 'The Sanctuary in the Sky'],
+  'SD21-JP034': ['2007-03-08', 'Structure Deck: Curse of Darkness'],
+  'ST12-JP015': ['2001-09-20', 'Struggle of Chaos'],
+  'ST14-JP004': ['1999-06-01', 'Limited Edition: Yugi Pack'],
+  'DC01-JP028': ['2000-12-23', 'Premium Pack 4'],
+  'SD27-JP020': ['2014-06-21', "Structure Deck: HERO's Strike"],
+  'SD27-JP027': ['2006-02-16', 'Enemy of Justice'],
+  'SR01-JP021': ['2009-11-14', 'Absolute Powerforce'],
+  'DP17-JP039': ['2001-12-20', 'Duel Monsters 6: Expert 2 game promo'],
+  'SDMY-JP030': ['2002-07-04', 'Duel Monsters 7 game promo'],
+  'SDMY-JP040': ['2004-02-05', 'Duel Monsters Expert 3 game guide promo'],
+  'SR03-JP023': ['2005-11-17', 'Shadow of Infinity'],
+  'SD32-JP018': ['1999-07-22', 'Vol.4'],
+  'SD33-JP023': ['2012-02-18', 'Galactic Overlord'],
+  'SAST-JP011': ['2018-10-13', 'Savage Strike'],
+  'DP24-JP015': ['2002-10-04', 'The Valuable Book 5 promo'],
+  'DUNE-JP029': ['2023-04-22', 'Duelist Nexus'],
+  'SD47-JP025': ['2007-06-23', 'Structure Deck: Revival of the Great Dragon'],
+  'DBJH-JP012': ['2015-02-14', 'Crossed Souls'],
+  'DUAD-JP071': ['2025-04-26', "Duelist's Advance"],
 };
 
 /* ===================================================================== */
@@ -534,8 +635,7 @@ const years = SETS.map(s => +s.date.slice(0, 4));
 $('#stats').innerHTML =
   `<span class="stat"><b>${SETS.length}</b> sets</span>` +
   `<span class="stat"><b>${Math.min(...years)}</b> to <b>${Math.max(...years)}</b></span>` +
-  `<span class="stat"><b>~100</b> cards</span>` +
-  (CARDS.length ? `<span class="stat"><b>${CARDS.length}</b> with a picture</span>` : '');
+  `<span class="stat"><b>${CARDS.length}</b> cards</span>`;
 
 // Timeline strip: evenly spaced in date order (a true-to-scale line would squash
 // the busy year 2000), with each year written under its first set.
