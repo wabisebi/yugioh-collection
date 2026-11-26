@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "cards",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "cd /tmp && exec python3 -m http.server ${PORT:-8010} -d \"/Users/Seb/Projects/yugioh-collection\""],
+      "port": 8010
+    }
+  ]
+}
