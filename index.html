@@ -273,9 +273,7 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
       <li><b>Also in the EX Starter Box</b> (Dec 1999): Pale Beast, Skull Red Bird, Witty Phantom, Dark Assailant, Unknown Warrior of Fiend. Those look the same either way, so they're filed under their first Vol.</li>
       <li><b>Fissure and Man-Eater Bug:</b> also in the EX Starter Box, but here you can tell: the Vol. copies are Super Rare with a shiny silver name. A plain name means EX Starter Box.</li>
       <li><b>MAHOUKAADO</b> (魔法カード) just means "Spell Card", the label on every spell. Which card's name is at the top?</li>
-      <li><b>BE-JP017:</b> there's no plain "BE" set. Which one? BE1-JP017 Gravekeeper's Servant, BE2-JP017 Graverobber's Retribution, BE01-JP017 Final Destiny or BE02-JP017 Destruction Punch.</li>
       <li><b>BE2 and BE02</b> are two different sets: Beginner's Edition 2 from 2004 and the 2011 one.</li>
-      <li><b>SD11 date:</b> the source page had a conflicting year.</li>
     </ul>
   </section>
  </div>
@@ -347,7 +345,7 @@ const SETS = [
   { code: 'EE2',   name: 'Expert Edition Volume 2', date: '2005-03-17', group: 'codejp' },
   { code: 'SD4',   name: 'Structure Deck: Fury from the Deep', jp: '海竜神の怒り', date: '2005-03-17', group: 'codejp' },
   { code: 'CDIP',  name: 'Cyberdark Impact', jp: 'サイバーダーク・インパクト', date: '2006-08-10', group: 'codejp' },
-  { code: 'SD11',  name: 'Structure Deck SD11', jp: '閃光の波動', date: '2006-12-14', group: 'codejp', unsure: 'Date not certain' },
+  { code: 'SD11',  name: 'Structure Deck: Surge of Radiance', jp: '閃光の波動', date: '2006-12-14', group: 'codejp' },
   { code: 'FOTB',  name: 'Force of the Breaker', jp: 'フォース・オブ・ザ・ブレイカー', date: '2007-02-15', group: 'codejp' },
   { code: 'GLAS',  name: "Gladiator's Assault", jp: 'グラディエイターズ・アサルト', date: '2007-07-21', group: 'codejp' },
   { code: 'CSOC',  name: 'Crossroads of Chaos', jp: 'クロスローズ・オブ・カオス', date: '2008-07-19', group: 'codejp' },
@@ -390,6 +388,7 @@ const SETS = [
   { code: 'DP12',  name: 'Duelist Pack: Yuma', jp: '遊馬編', date: '2011-10-15', group: 'codejp' },
   { code: '17SP',  name: 'Special Pack (2017)', date: '2017-08-05', group: 'codejp' },
   { code: 'LOCH',  name: 'Limit Over Collection: The Heroes', date: '2026-02-28', group: 'codejp' },
+  { code: 'ST13',  name: 'Starter Deck 2013', date: '2013-03-16', group: 'codejp' },
   { code: 'DBGV', name: 'Deck-Build Pack: Glorious Victors', jp: 'グロリアス・ヴィクターズ', date: '2026-09-05', group: 'codejp' },
   { code: 'DL3', name: 'Duelist Legacy Volume 3', date: '2002-12-12', group: 'code' },
   { code: 'SD3', name: 'Structure Deck: Blaze of Destruction', jp: '灼熱の大地', date: '2005-01-20', group: 'codejp' },
@@ -430,7 +429,7 @@ const SET_IMG = {
   EXP1: 'exp1.png', CRMS: 'crms.png', BPRO: 'bpro.png', BLZD: 'blzd.png',
   LB: 'lb.jpg', YU: 'yu.png', '304': '304.jpg', SD4: 'sd4.png', GLAS: 'glas.png', GDB1: 'gdb1.png',
   PTDN: 'ptdn.png', GENF: 'genf.png', GS04: 'gs04.png', DE01: 'de01.png', GS05: 'gs05.png', DP18: 'dp18.png',
-  DP28: 'dp28.png', WPP4: 'wpp4.png', LEDE: 'lede.png', INFO: 'info.png', WPP5: 'wpp5.png', WPP6: 'wpp6.png', RV01: 'rv01.png', DBGV: 'dbgv.png', SC: 'sc.jpg', SDY: 'sdy.png', LN: 'ln.jpg', DL2: 'dl2.png', '305': '305.jpg', SY2: 'sy2.png', SK2: 'sk2.png', P4: 'p4.jpg', MA: 'ma.jpg', '309': '309.jpg', BE1: 'be1.png', CRV: 'crv.jpg', EE04: 'ee04.png', DP13: 'dp13.png', DANE: 'dane.png', ROTD: 'rotd.png', SD8: 'sd8.png', SD14: 'sd14.png', SD22: 'sd22.png', '15AY': '15ay.png', DP16: 'dp16.png', SHVI: 'shvi.png', DP12: 'dp12.png', '17SP': '17sp.png', LOCH: 'loch.png', JY: 'jy.png', '303': '303.jpg', '306': '306.jpg', '308': '308.jpg',
+  DP28: 'dp28.png', WPP4: 'wpp4.png', LEDE: 'lede.png', INFO: 'info.png', WPP5: 'wpp5.png', WPP6: 'wpp6.png', RV01: 'rv01.png', DBGV: 'dbgv.png', SC: 'sc.jpg', SDY: 'sdy.png', LN: 'ln.jpg', DL2: 'dl2.png', '305': '305.jpg', SY2: 'sy2.png', SK2: 'sk2.png', P4: 'p4.jpg', MA: 'ma.jpg', '309': '309.jpg', BE1: 'be1.png', CRV: 'crv.jpg', EE04: 'ee04.png', DP13: 'dp13.png', DANE: 'dane.png', ROTD: 'rotd.png', SD8: 'sd8.png', SD14: 'sd14.png', SD22: 'sd22.png', '15AY': '15ay.png', DP16: 'dp16.png', SHVI: 'shvi.png', DP12: 'dp12.png', '17SP': '17sp.png', LOCH: 'loch.png', ST13: 'st13.png', JY: 'jy.png', '303': '303.jpg', '306': '306.jpg', '308': '308.jpg',
   DL3: 'dl3.png', SD3: 'sd3.png', SD5: 'sd5.png', SD10: 'sd10.png', DP04: 'dp04.jpg', SD13: 'sd13.png', SD17: 'sd17.png', SOVR: 'sovr.jpg', STOR: 'stor.png', SD20: 'sd20.png', SD21: 'sd21.png', ST12: 'st12.png', ST14: 'st14.png', DC01: 'dc01.png', SD27: 'sd27.png', SR01: 'sr01.png', DP17: 'dp17.png', SDMY: 'sdmy.png', SR03: 'sr03.png', SD32: 'sd32.png', SD33: 'sd33.png', SAST: 'sast.png', DP24: 'dp24.png', DUNE: 'dune.png', SD47: 'sd47.png', DBJH: 'dbjh.png', DUAD: 'duad.png',
 };
 SETS.forEach(s => { if (SET_IMG[s.code]) s.img = 'photos/sets/' + SET_IMG[s.code]; });
@@ -635,6 +634,8 @@ const CARDS = [
   { set: '17SP', code: '17SP-JP001', name: 'Gale Dogra', jp: 'ゲール・ドグラ', type: 'Effect Monster', attr: 'EARTH', lv: 2, img: 'photos/17sp-jp001.png' },
   { set: 'INFO', code: 'INFO-JP003', name: 'Shield of the Millennium Dynasty', jp: '千年王朝の盾', type: 'Effect Monster', attr: 'EARTH', lv: 5, img: 'photos/info-jp003.png' },
   { set: 'LOCH', code: 'LOCH-JP067', name: 'Metamorphosis', jp: '突然変異', type: 'Spell', img: 'photos/loch-jp067.png' },
+  { set: 'BE2', code: 'BE2-JP017', name: "Graverobber's Retribution", jp: '墓荒らしの報い', type: 'Trap', img: 'photos/be2-jp017.jpg' },
+  { set: 'ST13', code: 'ST13-JP020', name: 'Old Vindictive Magician', jp: '執念深き老魔術師', type: 'Effect Monster', attr: 'DARK', lv: 2, img: 'photos/st13-jp020.png' },
   { set: 'DL3', code: 'DL3-028', name: 'Invitation to a Dark Sleep', jp: '暗黒の眠りを誘うルシファー', type: 'Effect Monster', attr: 'DARK', lv: 5, img: 'photos/dl3-028.jpg' },
   { set: 'SD3', code: 'SD3-JP008', name: 'Solar Flare Dragon', jp: 'プロミネンス・ドラゴン', type: 'Effect Monster', attr: 'FIRE', lv: 4, img: 'photos/sd3-jp008.jpg' },
   { set: 'SD3', code: 'SD3-JP016', name: 'Molten Destruction', jp: 'バーニングブラッド', type: 'Spell', img: 'photos/sd3-jp016.jpg' },
@@ -644,7 +645,6 @@ const CARDS = [
   { set: 'DP04', code: 'DP04-JP022', name: 'Overload Fusion', jp: 'オーバーロード・フュージョン', type: 'Spell', img: 'photos/dp04-jp022.jpg' },
   { set: 'SD11', code: 'SD11-JP008', name: 'Dunames Dark Witch', jp: 'デュナミス・ヴァルキリア', type: 'Normal Monster', attr: 'LIGHT', lv: 4, img: 'photos/sd11-jp008.png' },
   { set: 'SD13', code: 'SD13-JP019', name: 'Foolish Burial', jp: 'おろかな埋葬', type: 'Spell', img: 'photos/sd13-jp019.jpg' },
-  { set: 'SD13', code: 'SD13-JP020', name: 'The Shallow Grave', jp: '浅すぎた墓穴', type: 'Spell', img: 'photos/sd13-jp020.jpg' },
   { set: 'SD17', code: 'SD17-JP015', name: 'Blazewing Butterfly', jp: '炎妖蝶ウィルプス', type: 'Effect Monster', attr: 'FIRE', lv: 4, img: 'photos/sd17-jp015.jpg' },
   { set: 'SOVR', code: 'SOVR-JP015', name: 'Dark Spider', jp: 'ダーク・スパイダー', type: 'Effect Monster', attr: 'DARK', lv: 1, img: 'photos/sovr-jp015.jpg' },
   { set: 'SOVR', code: 'SOVR-JP071', name: 'Roar of the Earthbound Immortal', jp: '地縛神の咆哮', type: 'Trap', img: 'photos/sovr-jp071.jpg' },
@@ -848,6 +848,8 @@ const FIRST = {
   '17SP-JP001': ['1999-12-01', 'Booster 6'],
   'INFO-JP003': ['2024-04-27', 'The Infinite Forbidden'],
   'LOCH-JP067': ['2002-05-16', 'The New Ruler'],
+  'BE2-JP017':  ['2001-07-21', 'Labyrinth of Nightmare'],
+  'ST13-JP020': ['2002-09-19', 'Champion of Black Magic'],
   'DL3-028': ['2000-12-14', 'Thousand Eyes Bible'],
   'SD3-JP008': ['2003-11-20', 'The Sanctuary in the Sky'],
   'SD3-JP016': ['2000-07-13', "Pharaoh's Servant"],
@@ -857,7 +859,6 @@ const FIRST = {
   'DP04-JP022': ['2006-05-18', 'Power of the Duelist'],
   'SD11-JP008': ['2000-07-13', 'Duel Monsters III game pre-order promo'],
   'SD13-JP019': ['2003-08-07', 'Structure Deck: Joey Volume 2'],
-  'SD13-JP020': ['2000-09-28', 'Curse of Anubis'],
   'SD17-JP015': ['2008-09-13', 'Extra Pack'],
   'SOVR-JP015': ['2009-07-18', 'Stardust Overdrive'],
   'SOVR-JP071': ['2009-07-18', 'Stardust Overdrive'],
