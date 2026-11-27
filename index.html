@@ -270,7 +270,9 @@ footer { color: var(--mute); font-size: 13px; text-align: center; padding: 10px 
   <section class="notes">
     <h2>Still to check</h2>
     <ul>
-      <li><b>Doma and Pale Beast</b> (no code) were also in the EX Starter Box (Dec 1999), and the cards look the same. They're filed under Vol.4 and Vol.5, their first printings.</li>
+      <li><b>Also in the EX Starter Box</b> (Dec 1999): Doma, Pale Beast, Skull Red Bird, Witty Phantom, Dark Assailant, Unknown Warrior of Fiend. Those look the same either way, so they're filed under their first Vol.</li>
+      <li><b>Fissure and Man-Eater Bug:</b> also in the EX Starter Box, but here you can tell: the Vol. copies are Super Rare with a shiny silver name. A plain name means EX Starter Box.</li>
+      <li><b>MAHOUKAADO</b> (魔法カード) just means "Spell Card", the label on every spell. Which card's name is at the top?</li>
       <li><b>BE2 and BE02</b> are two different sets: Beginner's Edition 2 from 2004 and the 2011 one.</li>
       <li><b>SD11 date:</b> the source page had a conflicting year.</li>
     </ul>
@@ -306,6 +308,9 @@ const SETS = [
   { code: 'Vol.4', name: 'Volume 4', date: '1999-07-22', group: 'nocode', sample: 'no code' },
   { code: 'Vol.5', name: 'Volume 5', date: '1999-09-23', group: 'nocode', sample: 'no code' },
   { code: 'Vol.7', name: 'Volume 7', date: '2000-01-27', group: 'nocode', sample: 'no code' },
+  { code: 'Vol.1', name: 'Volume 1', date: '1999-02-04', group: 'nocode', sample: 'no code' },
+  { code: 'Vol.3', name: 'Volume 3', date: '1999-05-27', group: 'nocode', sample: 'no code' },
+  { code: 'Vol.6', name: 'Volume 6', date: '1999-11-18', group: 'nocode', sample: 'no code' },
   { code: 'MR',    name: 'Magic Ruler', date: '2000-04-20', group: 'code' },
   { code: 'LB',    name: 'Legend of Blue Eyes White Dragon', jp: '青眼の白龍伝説', date: '2000-05-18', group: 'code' },
   { code: 'PS',    name: "Pharaoh's Servant", date: '2000-07-13', group: 'code' },
@@ -387,7 +392,7 @@ const SETS = [
 
 // Product picture for each set (booster pack or deck box), shown on the set tiles.
 const SET_IMG = {
-  'Vol.2': 'vol2.jpg', 'Vol.4': 'vol4.jpg', 'Vol.5': 'vol5.jpg', 'Vol.7': 'vol7.jpg', MR: 'mr.jpg', PS: 'ps.jpg', PG: 'pg.jpg', B2: 'b2.png', CA: 'ca.jpg',
+  'Vol.2': 'vol2.jpg', 'Vol.4': 'vol4.jpg', 'Vol.5': 'vol5.jpg', 'Vol.7': 'vol7.jpg', 'Vol.1': 'vol1.jpg', 'Vol.3': 'vol3.jpg', 'Vol.6': 'vol6.jpg', MR: 'mr.jpg', PS: 'ps.jpg', PG: 'pg.jpg', B2: 'b2.png', CA: 'ca.jpg',
   RB: 'rb.png', EX: 'ex.png', TB: 'tb.jpg', ME: 'me.jpg', SM: 'sm.png', KA: 'ka.png',
   '301': '301.png', '302': '302.jpg', BE2: 'be2.png', SD11: 'sd11.png', SD18: 'sd18.png',
   BE02: 'be02.png', EXP4: 'exp4.png', FOTB: 'fotb.jpg', '20AP': '20ap.png', AGOV: 'agov.png',
@@ -410,6 +415,24 @@ const CARDS = [
   { set: 'Vol.5', code: '', name: 'Toad Master',      jp: 'トードマスター',           type: 'Normal Monster', attr: 'WATER', lv: 3, img: 'photos/vol5-toad-master.png' },
   { set: 'Vol.5', code: '', name: 'Pale Beast',       jp: 'ペイルビースト',           type: 'Normal Monster', attr: 'EARTH', lv: 4, img: 'photos/vol5-pale-beast.png' },
   { set: 'Vol.7', code: '', name: 'Sword of Deep-Seated', jp: '執念の剣',             type: 'Spell',                                img: 'photos/vol7-sword-of-deep-seated.jpg' },
+  { set: 'Vol.1', code: '', name: 'Fissure', jp: '地割れ', type: 'Spell', img: 'photos/vol1-fissure.jpg' },
+  { set: 'Vol.1', code: '', name: 'Dark Gray', jp: 'ダーク・グレイ', type: 'Normal Monster', attr: 'EARTH', lv: 3, img: 'photos/vol1-dark-gray.jpg' },
+  { set: 'Vol.1', code: '', name: 'Winged Cleaver', jp: 'ダークキラー', type: 'Normal Monster', attr: 'EARTH', lv: 2, img: 'photos/vol1-winged-cleaver.jpg' },
+  { set: 'Vol.3', code: '', name: 'Skull Red Bird', jp: 'スカイ・ハンター', type: 'Normal Monster', attr: 'WIND', lv: 4, img: 'photos/vol3-skull-red-bird.jpg' },
+  { set: 'Vol.3', code: '', name: 'Follow Wind', jp: 'フォロー・ウィンド', type: 'Spell', img: 'photos/vol3-follow-wind.jpg' },
+  { set: 'Vol.3', code: '', name: 'Man-Eater Bug', jp: '人喰い虫', type: 'Effect Monster', attr: 'EARTH', lv: 2, img: 'photos/vol3-man-eater-bug.jpg' },
+  { set: 'Vol.3', code: '', name: 'Flower Wolf', jp: 'フラワー・ウルフ', type: 'Fusion Monster', attr: 'EARTH', lv: 5, img: 'photos/vol3-flower-wolf.jpg' },
+  { set: 'Vol.3', code: '', name: 'Witty Phantom', jp: '魔人デスサタン', type: 'Normal Monster', attr: 'DARK', lv: 4, img: 'photos/vol3-witty-phantom.jpg' },
+  { set: 'Vol.4', code: '', name: 'Water Omotics', jp: '水の踊り子', type: 'Normal Monster', attr: 'WATER', lv: 4, img: 'photos/vol4-water-omotics.png' },
+  { set: 'Vol.4', code: '', name: 'Hunter Spider', jp: 'ハンター・スパイダー', type: 'Normal Monster', attr: 'EARTH', lv: 5, img: 'photos/vol4-hunter-spider.jpg' },
+  { set: 'Vol.4', code: '', name: 'Ocubeam', jp: 'エンゼル・イヤーズ', type: 'Normal Monster', attr: 'LIGHT', lv: 5, img: 'photos/vol4-ocubeam.jpg' },
+  { set: 'Vol.4', code: '', name: 'Dark Assailant', jp: '闇の暗殺者', type: 'Normal Monster', attr: 'DARK', lv: 4, img: 'photos/vol4-dark-assailant.jpg' },
+  { set: 'Vol.5', code: '', name: 'Big Eye', jp: '大王目玉', type: 'Effect Monster', attr: 'DARK', lv: 4, img: 'photos/vol5-big-eye.jpg' },
+  { set: 'Vol.5', code: '', name: 'Unknown Warrior of Fiend', jp: '悪の無名戦士', type: 'Normal Monster', attr: 'DARK', lv: 3, img: 'photos/vol5-unknown-warrior-of-fiend.png' },
+  { set: 'Vol.6', code: '', name: 'Laughing Flower', jp: '笑う花', type: 'Normal Monster', attr: 'EARTH', lv: 2, img: 'photos/vol6-laughing-flower.jpg' },
+  { set: 'Vol.7', code: '', name: 'Swamp Battleguard', jp: 'バーバリアン２号', type: 'Effect Monster', attr: 'EARTH', lv: 5, img: 'photos/vol7-swamp-battleguard.jpg' },
+  { set: 'Vol.7', code: '', name: 'The Immortal of Thunder', jp: '雷仙人', type: 'Effect Monster', attr: 'LIGHT', lv: 4, img: 'photos/vol7-immortal-of-thunder.png' },
+  { set: 'Vol.7', code: '', name: 'Mushroom Man #2', jp: 'マタンゴ', type: 'Effect Monster', attr: 'EARTH', lv: 3, img: 'photos/vol7-mushroom-man-2.jpg' },
   { set: 'MR', code: 'MR-11', name: 'Peacock',          jp: 'クジャック',               type: 'Normal Monster', attr: 'WIND',  lv: 5, img: 'photos/mr-11.jpg' },
   { set: 'MR', code: 'MR-50', name: 'Snake Fang',       jp: '毒蛇の牙',                 type: 'Trap',                                 img: 'photos/mr-50.png' },
   { set: 'LB', code: 'LB-38', name: 'Kurama',           jp: 'ドレイク',                 type: 'Normal Monster', attr: 'WIND',  lv: 3, img: 'photos/lb-38.jpg' },
