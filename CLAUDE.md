@@ -21,6 +21,7 @@ A personal page for Seb's second-hand Japanese Yu-Gi-Oh! cards (about 100, picke
 - The "Still to check" box near the bottom of `index.html` lists open questions (codes that match nothing etc.).
 
 ## Adding cards (Seb sends codes like `MR-11, FOTB-JP012`)
+Never add doubles: before adding, check each card against `CARDS` by code and by card name. Skip any that's already there (even a different printing of the same card) and tell Seb which ones were skipped.
 Use the browser pane on a yugipedia.com tab and call the MediaWiki API with `fetch('/api.php?...')` from there.
 1. Find the card: full-text search for the code in quotes (`list=search&srwhat=text&srnamespace=*&srsearch="MR-11"`); the hit is `Set Card Lists:<Set> (OCG-JP)` plus the card page. Watch for typos: `F0TB` = `FOTB`, two codes stuck together. If a code matches nothing, try close codes, list the candidates for Seb and put it in "Still to check" instead of guessing.
 2. Card data from the card page (`prop=revisions`, `redirects=1`): `ja_name` (strip `{{Ruby|漢字|かな}}` to 漢字), `types` / `card_type`, `attribute`, `level`.
